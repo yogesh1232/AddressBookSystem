@@ -18,8 +18,9 @@ namespace AddressBookSystem
         public long zipCode;
         public long phoneNumber;
         public string email;
-        //// constructor that gets user detail and store it in the current object.
-        public CreateContact(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+        
+        // constructor that gets user detail and store it in the current object.
+        public Contact(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -30,9 +31,8 @@ namespace AddressBookSystem
             this.phoneNumber = phoneNumber;
             this.email = email;
         }
-        /// <summary>
-        /// To display the contact details.
-        /// </summary>
+
+        // To display the contact details.
         public void Display()
         {
             Console.WriteLine("First Name:{0}", this.firstName);
@@ -41,7 +41,8 @@ namespace AddressBookSystem
             Console.WriteLine("City: {0}", this.city);
             Console.WriteLine("State:{0}", this.state);
             Console.WriteLine("Zipcode:{0}", this.zipCode);
-            Console.WriteLine("phone number:{0}", this.phoneNumber);
+            Console.WriteLine("Phone number:{0}", this.phoneNumber);
+            Console.WriteLine("Email ID:{0}", this.email);
         }
     }
 }
