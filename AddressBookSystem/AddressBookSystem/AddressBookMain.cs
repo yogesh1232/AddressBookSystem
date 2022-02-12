@@ -12,7 +12,6 @@ namespace AddressBookSystem
         const int LAST_NAME = 1, ADDRESS = 2, CITY = 3, STATE = 4, ZIP = 5, PHONE_NUMBER = 6, EMAIL = 7;
 
         private LinkedList<CreateContact> contactList;
-
         public AddressBookMain()
         {
             this.contactList = new LinkedList<CreateContact>();
@@ -24,6 +23,9 @@ namespace AddressBookSystem
             this.contactList.AddLast(contactDetails);
         }
 
+        /// <summary>
+        /// display the contact details.
+        /// </summary>
         public void DisplayContact()
         {
             foreach (CreateContact data in this.contactList)
@@ -31,6 +33,10 @@ namespace AddressBookSystem
                 data.Display();
             }
         }
+        /// <summary>
+        /// update the contact details.
+        /// </summary>
+        /// <param name="name"></param>
         public void EditContact(string name)
         {
             Console.WriteLine("Enter your choice:");
@@ -83,8 +89,7 @@ namespace AddressBookSystem
                 }
             }
         }
-
-        // delete a contact from address book.
+        /// delete a contact from address book.
         public void DeleteContact(string name)
         {
             foreach (CreateContact contact in this.contactList)
