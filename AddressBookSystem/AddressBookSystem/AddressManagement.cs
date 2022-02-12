@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBookSystem
 {
-     class AddressManagement
+    class AddressManagement
     {
         static AddressBookMain addressBookMain = new AddressBookMain();
         static Dictionary<string, AddressBookMain> addressDictionary = new Dictionary<string, AddressBookMain>();
@@ -66,10 +66,8 @@ namespace AddressBookSystem
                 }
             }
         }
-        /// <summary>
-        /// This method is used to add multipl contacts.
-        /// </summary>
-        /// <param name="addressBookMain"></param>
+
+        // This method is used to add multiple contacts.
         public static void AddDetails(AddressBookMain addressBookMain)
         {
             Console.WriteLine("Enter first Name");
@@ -90,11 +88,8 @@ namespace AddressBookSystem
             string email = Console.ReadLine();
             addressBookMain.AddContactDetails(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
         }
-        /// <summary>
+
         /// method to find the address of particular address book.
-        /// </summary>
-        /// <param name="addBook"></param>
-        /// <returns></returns>
         public static AddressBookMain BookName(Dictionary<string, AddressBookMain> addBook)
         {
             addressDictionary = addBook;
