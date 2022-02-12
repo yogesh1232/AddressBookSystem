@@ -49,10 +49,8 @@ namespace AddressBookSystem
                 }
             }
         }
-        /// <summary>
-        /// This method is used to add a new contact.
-        /// </summary>
-        /// <param name="addressBookMain"></param>
+ 
+        /// This method is used to add multi contact.
         public static void AddDetails(AddressBookMain addressBookMain)
         {
             Console.WriteLine("Enter first Name");
