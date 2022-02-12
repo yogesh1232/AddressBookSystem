@@ -8,41 +8,40 @@ namespace AddressBookSystem
 {
     public class CreateContact
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public double Zip { get; set; }
-        public double PhoneNumber { get; set; }
-        public string Email { get; set; }
-        /// <summary>
-        /// display contact information.
-        /// </summary>
-        public void displayContact()
-        {
-            Console.WriteLine("FirstName: " + this.FirstName + " LastName: " + this.LastName + " Address: " + this.Address +
-                                " City: " + this.City + " State: " + this.State + " Zip: " + this.Zip +
-                                  " PhoneNumber: " + this.PhoneNumber + " Email: " + this.Email);
-        }
 
-        public void AddContact()
+        // variables
+        public string firstName;
+        public string lastName;
+        public string address;
+        public string city;
+        public string state;
+        public long zipCode;
+        public long phoneNumber;
+        public string email;
+        //// constructor that gets user detail and store it in the current object.
+        public CreateContact(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
         {
-            Console.Write("Enter First Name, Last Name, Address, City, State, Zip, Phone Number, Email \n");
-            CreateContact contactPerson = new CreateContact()
-            {
-                FirstName = Console.ReadLine(),
-                LastName = Console.ReadLine(),
-                Address = Console.ReadLine(),
-                City = Console.ReadLine(),
-                State = Console.ReadLine(),
-                Zip = Convert.ToDouble(Console.ReadLine()),
-                PhoneNumber = Convert.ToDouble(Console.ReadLine()),
-                Email = Console.ReadLine(),
-            };
-            List<CreateContact> list = new List<CreateContact>();
-            list.Add(contactPerson);
-            contactPerson.displayContact();
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.address = address;
+            this.city = city;
+            this.state = state;
+            this.zipCode = zipCode;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
+        }
+        /// <summary>
+        /// To display the contact details.
+        /// </summary>
+        public void Display()
+        {
+            Console.WriteLine("First Name:{0}", this.firstName);
+            Console.WriteLine("Last Name:{0}", this.lastName);
+            Console.WriteLine("Address:{0}", this.address);
+            Console.WriteLine("City: {0}", this.city);
+            Console.WriteLine("State:{0}", this.state);
+            Console.WriteLine("Zipcode:{0}", this.zipCode);
+            Console.WriteLine("phone number:{0}", this.phoneNumber);
         }
     }
 }

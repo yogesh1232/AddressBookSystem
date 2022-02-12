@@ -1,4 +1,4 @@
 ﻿using AddressBookSystem;
 
-CreateContact contactPerson = new CreateContact();
-contactPerson.AddContact();
+Console.WriteLine("Welcome to Address Book System");
+AddressManagement.ReadInput();
