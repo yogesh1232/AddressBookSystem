@@ -83,6 +83,20 @@ namespace AddressBookSystem
                 }
             }
         }
+
+        // delete a contact from address book.
+        public void DeleteContact(string name)
+        {
+            foreach (CreateContact contact in this.contactList)
+            {
+                if (contact.firstName.Equals(name))
+                {
+                    this.contactList.Remove(contact);
+                    Console.WriteLine("Contact Deleted Successfully");
+                    break;
+                }
+            }
+        }
     }
 
 }
