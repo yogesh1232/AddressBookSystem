@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sanjay\\source\\repos\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem.csproj": {}
+    "C:\\Users\\HP\\source\\repos\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sanjay\\source\\repos\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem.csproj": {
+    "C:\\Users\\HP\\source\\repos\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sanjay\\source\\repos\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem.csproj",
         "projectName": "AddressBookSystem",
-        "projectPath": "C:\\Users\\sanjay\\source\\repos\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem.csproj",
-        "packagesPath": "C:\\Users\\sanjay\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sanjay\\source\\repos\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem\\obj\\",
+        "projectPath": "C:\\Users\\HP\\source\\repos\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HP\\source\\repos\\AddressBookSystem\\AddressBookSystem\\AddressBookSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sanjay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

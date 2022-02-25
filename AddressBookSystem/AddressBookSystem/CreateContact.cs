@@ -20,7 +20,7 @@ namespace AddressBookSystem
         public string email;
         
         // constructor that gets user detail and store it in the current object.
-        public Contact(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+        public CreateContact(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
         {
             this.firstName = firstName;
             this.lastName = lastName;

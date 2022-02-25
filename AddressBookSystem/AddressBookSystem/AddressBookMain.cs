@@ -11,30 +11,57 @@ namespace AddressBookSystem
         // constants
         const int LAST_NAME = 1, ADDRESS = 2, CITY = 3, STATE = 4, ZIP = 5, PHONE_NUMBER = 6, EMAIL = 7;
 
-        private LinkedList<CreateContact> contactList;
+        private List<CreateContact> contactList;
+        private List<CreateContact> cityList;
+        private List<CreateContact> stateList;
         public AddressBookMain()
         {
-            this.contactList = new LinkedList<CreateContact>();
+            this.contactList = new List<CreateContact>();
         }
         //this method add details to the address book
-        public void AddContactDetails(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+        public void AddContactDetails(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email, Dictionary<string, List<CreateContact>> stateDictionary, Dictionary<string, List<CreateContact>> cityDictionary)
         {
-            // finding the data that already has the same first name
-            Contact contact = this.contactList.Find(x => x.firstName.Equals(firstName));
-            // if same name is not present then add into address book
+            //// finding the data that already has the same first name
+            CreateContact contact = this.contactList.Find(x => x.firstName.Equals(firstName));
+            //// if same name is not present then add into address book
             if (contact == null)
             {
-                Contact contactDetails = new Contact(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
+                CreateContact contactDetails = new CreateContact(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
                 this.contactList.Add(contactDetails);
+                if (!cityDictionary.ContainsKey(city))
+                {
+
+                    cityList = new List<CreateContact>();
+                    cityList.Add(contactDetails);
+                    cityDictionary.Add(city, cityList);
+                }
+                else
+                {
+                    List<CreateContact> cities = cityDictionary[city];
+                    cities.Add(contactDetails);
+                }
+                if (!stateDictionary.ContainsKey(state))
+                {
+
+                    stateList = new List<CreateContact>();
+                    stateList.Add(contactDetails);
+                    stateDictionary.Add(state, stateList);
+                }
+                else
+                {
+                    List<CreateContact> states = stateDictionary[state];
+                    states.Add(contactDetails);
+                }
             }
-            // print person already exists in the address book
+            //// print person already exists in the address book
             else
             {
                 Console.WriteLine("Person, {0} is already exist in the address book", firstName);
             }
         }
-
-        // display the contact details.
+        /// <summary>
+        /// display the contact details.
+        /// </summary>
         public void DisplayContact()
         {
             foreach (CreateContact data in this.contactList)
@@ -42,8 +69,10 @@ namespace AddressBookSystem
                 data.Display();
             }
         }
-
-        // update the contact details.
+        /// <summary>
+        /// update the contact details.
+        /// </summary>
+        /// <param name="name"></param>
         public void EditContact(string name)
         {
             Console.WriteLine("Enter your choice:");
@@ -55,7 +84,7 @@ namespace AddressBookSystem
             Console.WriteLine("6. Phone Number");
             Console.WriteLine("7. Email");
             int choice = Convert.ToInt32(Console.ReadLine());
-            // checks for every object whether the name is equal the given name
+            //// checks for every object whether the name is equal the given name
             foreach (CreateContact data in this.contactList)
             {
                 if (data.firstName.Equals(name))
@@ -96,8 +125,10 @@ namespace AddressBookSystem
                 }
             }
         }
-        
-        // delete a contact from address book.
+        /// <summary>
+        /// delete a contact from address book.
+        /// </summary>
+        /// <param name="name"></param>
         public void DeleteContact(string name)
         {
             foreach (CreateContact contact in this.contactList)
@@ -110,11 +141,13 @@ namespace AddressBookSystem
                 }
             }
         }
-
-        // display list of person across adress book system
+        /// <summary>
+        /// display list of person across adress book system
+        /// </summary>
+        /// <param name="addressDictionary"></param>
         public static void DisplayPerson(Dictionary<string, AddressBookMain> addressDictionary)
         {
-            List<Contact> list = null;
+            List<CreateContact> list = null;
             string name;
             Console.WriteLine("Enter City or State name");
             name = Console.ReadLine();
@@ -132,13 +165,32 @@ namespace AddressBookSystem
                 Console.WriteLine("No person present in the address book with same city or state name");
             }
         }
-
-        // display the data 
-        public static void DisplayList(List<Contact> list)
+        /// <summary>
+        /// display the data 
+        /// </summary>
+        /// <param name="list"></param>
+        public static void DisplayList(List<CreateContact> list)
         {
             foreach (var data in list)
             {
                 data.Display();
+            }
+        }
+        /// <summary>
+        /// display the person details by city or state
+        /// </summary>
+        /// <param name="dictinary"></param>
+        public static void PrintList(Dictionary<string, List<CreateContact>> dictionary)
+        {
+            foreach (var data in dictionary)
+            {
+                Console.WriteLine("Details of person in {0}", data.Key);
+                foreach (var person in data.Value)
+                {
+                    Console.WriteLine("{0} {1} {2} {3} {4} {5} {6}", person.firstName, person.lastName, person.address,
+                                                                   person.city, person.state, person.zipCode, person.phoneNumber, person.email);
+                }
+                Console.WriteLine("-----------------------------");
             }
         }
     }
