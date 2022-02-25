@@ -31,6 +31,7 @@ namespace AddressBookSystem
                 Console.WriteLine("6.Delete the address book");
                 Console.WriteLine("7.Display person by city or state name");
                 Console.WriteLine("8.View person by city or state");
+                Console.WriteLine("9.Count person by city or state");
                 Console.WriteLine("0.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -71,6 +72,12 @@ namespace AddressBookSystem
                         AddressBookMain.PrintList(cityDictionary);
                         AddressBookMain.PrintList(stateDictionary);
                         break;
+                    case 9:
+                        Console.WriteLine("City");
+                        AddressBookMain.CountPerson(cityDictionary);
+                        Console.WriteLine("State");
+                        AddressBookMain.CountPerson(stateDictionary);
+                        break;
                     case 0:
                         CONTINUE = false;
                         Console.WriteLine("Thank you for using Address Book System!");
@@ -80,10 +87,7 @@ namespace AddressBookSystem
                 }
             }
         }
-        /// <summary>
         /// This method is used to add multiple contacts.
-        /// </summary>
-        /// <param name="addressBookMain"></param>
         public static void AddDetails(AddressBookMain addressBookMain, Dictionary<string, List<CreateContact>> cityDictionary, Dictionary<string, List<CreateContact>> stateDictionary)
         {
             Console.WriteLine("Enter first Name");
@@ -104,11 +108,7 @@ namespace AddressBookSystem
             string email = Console.ReadLine();
             addressBookMain.AddContactDetails(firstName, lastName, address, city, state, zipCode, phoneNumber, email, cityDictionary, stateDictionary);
         }
-        /// <summary>
-        /// method to find the address of particular address book.
-        /// </summary>
-        /// <param name="addBook"></param>
-        /// <returns></returns>
+        // method to find the address of particular address book.
         public static AddressBookMain BookName(Dictionary<string, AddressBookMain> addBook)
         {
             addressDictionary = addBook;
