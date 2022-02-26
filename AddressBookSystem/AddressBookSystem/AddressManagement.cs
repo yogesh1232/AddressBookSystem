@@ -8,15 +8,16 @@ namespace AddressBookSystem
 {
     class AddressManagement
     {
-        static AddressBookMain addressBookMain = new AddressBookMain();
+        static string filepath = @"C:\Users\HP\source\repos\AddressBookSystem\AddressBookSystem\AddressBookSystem\data.txt";
         static Dictionary<string, AddressBookMain> addressDictionary = new Dictionary<string, AddressBookMain>();
         static Dictionary<string, List<CreateContact>> cityDictionary = new Dictionary<string, List<CreateContact>>();
         static Dictionary<string, List<CreateContact>> stateDictionary = new Dictionary<string, List<CreateContact>>();
-        /// <summary>
-        /// display the menu to user
-        /// </summary>
+        static Dictionary<string, List<CreateContact>> contactList = new Dictionary<string, List<CreateContact>>();
+
+        // display the menu to user
         public static void ReadInput()
         {
+            AddressBookMain addressBookMain;
             // variables
             bool CONTINUE = true;
             //// the loop continues until the user exit.
@@ -34,6 +35,7 @@ namespace AddressBookSystem
                 Console.WriteLine("9.Count person by city or state");
                 Console.WriteLine("10.Sort the Address book");
                 Console.WriteLine("11.Sort by state city or zip");
+                Console.WriteLine("12.Write and Read the Person detail using File IO");
                 Console.WriteLine("0.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -88,8 +90,11 @@ namespace AddressBookSystem
                         }
                         break;
                     case 11:
-                        //displaying the sorted records based on city,state,zipcode
                         AddressBookMain.SortData(cityDictionary);
+                        break;
+                    case 12:
+                        FileOperation.WriteInTextFile(contactList, filepath);
+                        FileOperation.ReadFromTextFile(filepath);
                         break;
                     case 0:
                         CONTINUE = false;
@@ -100,7 +105,7 @@ namespace AddressBookSystem
                 }
             }
         }
-        /// This method is used to add multiple contacts.
+        // This method is used to add multiple contacts.
         public static void AddDetails(AddressBookMain addressBookMain, Dictionary<string, List<CreateContact>> cityDictionary, Dictionary<string, List<CreateContact>> stateDictionary)
         {
             Console.WriteLine("Enter first Name");
@@ -114,9 +119,9 @@ namespace AddressBookSystem
             Console.WriteLine("Enter State");
             string state = Console.ReadLine();
             Console.WriteLine("Enter Zipcode");
-            long zipCode = Convert.ToInt64(Console.ReadLine());
+            string zipCode = Console.ReadLine();
             Console.WriteLine("Enter Phone Number");
-            long phoneNumber = Convert.ToInt64(Console.ReadLine());
+            string phoneNumber = Console.ReadLine();
             Console.WriteLine("Enter Email");
             string email = Console.ReadLine();
             addressBookMain.AddContactDetails(firstName, lastName, address, city, state, zipCode, phoneNumber, email, cityDictionary, stateDictionary);

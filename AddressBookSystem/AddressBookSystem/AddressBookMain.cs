@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBookSystem
 {
-    public class AddressBookMain
+    class AddressBookMain
     {
         // constants
         const int LAST_NAME = 1, ADDRESS = 2, CITY = 3, STATE = 4, ZIP = 5, PHONE_NUMBER = 6, EMAIL = 7;
@@ -19,7 +19,7 @@ namespace AddressBookSystem
             this.contactList = new List<CreateContact>();
         }
         //this method add details to the address book
-        public void AddContactDetails(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email, Dictionary<string, List<CreateContact>> stateDictionary, Dictionary<string, List<CreateContact>> cityDictionary)
+        public void AddContactDetails(string firstName, string lastName, string address, string city, string state, string zipCode, string phoneNumber, string email, Dictionary<string, List<CreateContact>> stateDictionary, Dictionary<string, List<CreateContact>> cityDictionary)
         {
             // finding the data that already has the same first name
             CreateContact contact = this.contactList.Find(x => x.firstName.Equals(firstName));
@@ -53,7 +53,7 @@ namespace AddressBookSystem
                     states.Add(contactDetails);
                 }
             }
-            // print person already exists in the address book
+            //// print person already exists in the address book
             else
             {
                 Console.WriteLine("Person, {0} is already exist in the address book", firstName);
@@ -79,7 +79,7 @@ namespace AddressBookSystem
             Console.WriteLine("6. Phone Number");
             Console.WriteLine("7. Email");
             int choice = Convert.ToInt32(Console.ReadLine());
-            // checks for every object whether the name is equal the given name
+            //// checks for every object whether the name is equal the given name
             foreach (CreateContact data in this.contactList)
             {
                 if (data.firstName.Equals(name))
@@ -103,11 +103,11 @@ namespace AddressBookSystem
                             Console.WriteLine("Data updated successfully");
                             break;
                         case ZIP:
-                            data.zipCode = Convert.ToInt64(Console.ReadLine());
+                            data.zipCode = Console.ReadLine();
                             Console.WriteLine("Data updated successfully");
                             break;
                         case PHONE_NUMBER:
-                            data.phoneNumber = Convert.ToInt64(Console.ReadLine());
+                            data.phoneNumber = Console.ReadLine();
                             Console.WriteLine("Data updated successfully");
                             break;
                         case EMAIL:
@@ -176,9 +176,7 @@ namespace AddressBookSystem
                 Console.WriteLine("-----------------------------");
             }
         }
-
-        /// count number of person by city or state
-       
+        // count number of person by city or state
         public static void CountPerson(Dictionary<string, List<CreateContact>> dictionary)
         {
             foreach (var person in dictionary)
@@ -186,6 +184,7 @@ namespace AddressBookSystem
                 Console.WriteLine("Number of person {0}:", person.Value.Count);
             }
         }
+
         public static void SortData(Dictionary<string, List<CreateContact>> dictionary)
         {
             //store the result inthe list and display the result
@@ -220,6 +219,5 @@ namespace AddressBookSystem
             }
         }
     }
-
 }
 
