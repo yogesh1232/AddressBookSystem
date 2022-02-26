@@ -33,6 +33,7 @@ namespace AddressBookSystem
                 Console.WriteLine("8.View person by city or state");
                 Console.WriteLine("9.Count person by city or state");
                 Console.WriteLine("10.Sort the Address book");
+                Console.WriteLine("11.Sort by state city or zip");
                 Console.WriteLine("0.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -85,6 +86,10 @@ namespace AddressBookSystem
                         {
                             Console.WriteLine("{0}", data.Key);
                         }
+                        break;
+                    case 11:
+                        //displaying the sorted records based on city,state,zipcode
+                        AddressBookMain.SortData(cityDictionary);
                         break;
                     case 0:
                         CONTINUE = false;

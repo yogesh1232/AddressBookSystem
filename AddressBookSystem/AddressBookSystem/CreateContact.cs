@@ -15,12 +15,11 @@ namespace AddressBookSystem
         public string address;
         public string city;
         public string state;
-        public long zipCode;
-        public long phoneNumber;
+        public string zipCode;
+        public string phoneNumber;
         public string email;
-        
         // constructor that gets user detail and store it in the current object.
-        public CreateContact(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+        public CreateContact(string firstName, string lastName, string address, string city, string state, string zipCode, string phoneNumber, string email)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -31,7 +30,6 @@ namespace AddressBookSystem
             this.phoneNumber = phoneNumber;
             this.email = email;
         }
-
         // To display the contact details.
         public void Display()
         {
